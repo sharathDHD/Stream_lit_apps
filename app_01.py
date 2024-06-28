@@ -90,10 +90,7 @@ def display_file_options(file_manager):
     st.write(f"Files that can be created: {file_list}")
 
     # Select all files checkbox
-    if st.checkbox('Select All Files'):
-        selected_files = file_list
-    else:
-        selected_files = []
+    selected_files = file_list if st.checkbox('Select All Files') else []
 
     # Select files by type checkboxes
     for file_type in file_types:
@@ -103,7 +100,6 @@ def display_file_options(file_manager):
     selected_files = list(set(selected_files))  # Remove duplicates
     selected_files_display = st.multiselect('Or select individual files:', file_list, default=selected_files)
     return selected_files_display
-
 def main():
     """
     Main function to run the Streamlit app.
