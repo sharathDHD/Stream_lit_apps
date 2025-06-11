@@ -29,7 +29,7 @@ class FileManager:
             logging.info("Data read from text area.")
             return self.data
         except Exception as e:
-            logging.error(f"Error reading data: {e}")
+            logging.error(f"Error reading data from {self.uploaded_file.name if self.uploaded_file else 'text area'}: {e}")
             st.error("Error reading data")
             return ""
 
